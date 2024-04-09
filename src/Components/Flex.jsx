@@ -5,5 +5,6 @@ const Flex = styled.div `
     gap: 20px;
     align-items: center;
     width: 100%;
+    justify-content: center;
 `
 export default Flex

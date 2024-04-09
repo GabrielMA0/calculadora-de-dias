@@ -21,6 +21,9 @@ const BackgroundOptionsContainer = styled.div`
     img {
         cursor: pointer;
         border: 2px solid transparent;
+        border-radius: 2px;
+        transition: 0.3s;
+
 
         &:hover{
             border: 2px solid ${(props) => props.theme.colors.white};
@@ -28,12 +31,23 @@ const BackgroundOptionsContainer = styled.div`
     }
 `
 
-const BackgroundOptions = () => {
+const ButtonContainer = styled.button`
+    padding: 0;
+    border: none;
+    background: none;
+`
+
+const BackgroundOptions = (props) => {
+    const { selectedLanguage } = props
+
+    const handleLanguage = (language) => {
+        selectedLanguage(language)
+    }
 
     return (
         <BackgroundOptionsContainer>
-            <img src={iconFlagBrazil} title="Português-brasil" alt="teste"/>
-            <img src={iconFlagUsa} title="Inglês-americano"alt="teste"/>
+            <ButtonContainer onClick={() => handleLanguage("portuguese")}><img src={iconFlagBrazil} title="Português-brasil" alt="teste"/></ButtonContainer>
+            <ButtonContainer onClick={() => handleLanguage("english")}><img src={iconFlagUsa} title="Inglês-americano"alt="teste"/></ButtonContainer>
         </BackgroundOptionsContainer>
     )
 }

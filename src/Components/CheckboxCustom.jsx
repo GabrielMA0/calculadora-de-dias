@@ -8,14 +8,18 @@ const CheckboxContainer = styled.div`
     align-items: center;
     gap: 5px;
     color: ${(props) => props.theme.colors.stroke};
+
+    & label{
+        cursor: pointer;
+    }
 `
 
 const Checkbox = (props) => {
-    const { children } = props
+    const { children, ...restProps } = props
 
     return (
         <CheckboxContainer>
-            <CheckboxCustom/>
+            <CheckboxCustom {...restProps}/>
                 {children}
         </CheckboxContainer>
     )

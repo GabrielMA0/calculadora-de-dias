@@ -22,9 +22,10 @@ const OptionsLanguageContainer = styled.div`
     }
 `
  
-const OptionsLanguage = () => {
+const OptionsLanguage = (props) => {
+    const { ...restProps} = props
     return (
-        <OptionsLanguageContainer>
+        <OptionsLanguageContainer {...restProps}>
             <img src={iconLanguage} title="Alterar idioma da página" alt="icone de um planeta" />
         </OptionsLanguageContainer>
     )

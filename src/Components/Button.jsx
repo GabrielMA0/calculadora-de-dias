@@ -15,6 +15,7 @@ const Buttoncontainer = styled.button`
     color: ${(props) => props.$type === ButtonType.CALCULATE ? props.theme.colors.white : props.theme.colors.stroke};
     cursor: pointer;
     font-size: ${(props) => props.theme.size.description};
+    transition: 0.3s;
 
     &:hover{
         ${(props) => props.$type === ButtonType.CALCULATE && `
@@ -28,13 +29,18 @@ const Buttoncontainer = styled.button`
         `}
 
     }
+
+    &:disabled{
+        filter: grayscale(100%);
+        cursor: no-drop;
+    }
 `
 const Button = (props) => {
     
-    const { type = ButtonType.CALCULATE, children } = props
+    const { type = ButtonType.CALCULATE, children, ...restProps } = props
 
     return (
-        <Buttoncontainer $type={type}>{children}</Buttoncontainer>
+        <Buttoncontainer $type={type} {...restProps}>{children}</Buttoncontainer>
     )
 }
 export default Button
