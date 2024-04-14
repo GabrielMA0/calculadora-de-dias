@@ -21,6 +21,10 @@ Projeto com intuito de estudar novas tecnologias.
 ## Deploy
 
 - Vercel: https://calculadora-de-dias-one.vercel.app
+  
+## Figma
+
+https://www.figma.com/file/cKLZuK6ZmskaeYzJNAA5L7/Projeto---Calculadora-de-dias?type=design&node-id=0%3A1&mode=design&t=DBHgUf4P7ZbioRbH-1
 
 ## Licenças dos icones
 
