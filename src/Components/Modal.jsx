@@ -34,6 +34,7 @@ const ModalContainer = styled(motion.div)`
         padding: 20px;
         gap: 20px;
         width: auto;
+        height: ${props => props.showResult ? "100%" : "536px"};
     }
 `
 const Modal = (props) => {
