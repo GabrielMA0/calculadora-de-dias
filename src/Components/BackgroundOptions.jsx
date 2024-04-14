@@ -2,12 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import iconFlagBrazil from "../assets/icon-flag-brazil.svg"
 import iconFlagUsa from "../assets/icon-flag-usa.svg"
+import { motion } from "framer-motion"
 
-const BackgroundOptionsContainer = styled.div`
+const BackgroundOptionsContainer = styled(motion.div)`
     z-index: 0;
     width: 90px;
     height: 44px;
-    position: fixed;
+    position: absolute;
     right: 61px;
     top: 20px;
     border-radius: 10px 0 0 10px;
@@ -17,6 +18,7 @@ const BackgroundOptionsContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 10px;
+    overflow: hidden;
 
     img {
         cursor: pointer;
@@ -38,14 +40,33 @@ const ButtonContainer = styled.button`
 `
 
 const BackgroundOptions = (props) => {
-    const { selectedLanguage } = props
+    
+    const { selectedLanguage, isOpenLanguage } = props
+
+    const animations = {
+        open: {
+          width: "90px",
+          border: "1px solid black",
+          transition: { width: { duration: 0.5 } }
+        },
+        closed: {
+          width: "0px",
+          border: "none",
+          transition: { width: { duration: 0.5 } }
+        }
+    };
 
     const handleLanguage = (language) => {
         selectedLanguage(language)
     }
 
     return (
-        <BackgroundOptionsContainer>
+        <BackgroundOptionsContainer
+            initial="closed"
+            variants={animations}
+            animate={isOpenLanguage ? "open" : "closed"}
+            transition={{ duration: 0.5 }}
+        >
             <ButtonContainer onClick={() => handleLanguage("portuguese")}><img src={iconFlagBrazil} title="Português-brasil" alt="teste"/></ButtonContainer>
             <ButtonContainer onClick={() => handleLanguage("english")}><img src={iconFlagUsa} title="Inglês-americano"alt="teste"/></ButtonContainer>
         </BackgroundOptionsContainer>

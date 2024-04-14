@@ -1,11 +1,11 @@
 import { ThemeProvider } from 'styled-components';
+import { Theme } from './Theme';
 import { useCallback, useState } from "react";
 import Modal from './Components/Modal';
 import Main from './Components/Main';
 import Header from './Components/Header';
 import OptionsLanguage from './Components/OptionsLanguage';
 import BackgroundOptions from './Components/BackgroundOptions';
-import { Theme } from './Theme';
 
 function App() {
 
@@ -24,7 +24,7 @@ function App() {
     labelCheckboxYears: "Mostrar anos",
     buttonClearText: "Limpar campos",
     buttonCalculateText: "Calcular",
-    subtitle: "Result",
+    subtitle: "Resultado",
     resultDays: "Quantidade de dias:",
     resultWeeks: "Quantidade de semanas:",
     resultMonths: "Quantidade de meses:",
@@ -58,7 +58,7 @@ function App() {
         labelCheckboxYears: "Mostrar anos",
         buttonClearText: "Limpar campos",
         buttonCalculateText: "Calcular",
-        subtitle: "Result",
+        subtitle: "Resultado",
         resultDays: "Quantidade de dias:",
         resultWeeks: "Quantidade de semanas:",
         resultMonths: "Quantidade de meses:",
@@ -71,9 +71,7 @@ function App() {
     <ThemeProvider theme={Theme}>
       <Header>
         <OptionsLanguage onClick={languageOptionData}></OptionsLanguage>
-        {isOpenLanguage && (
-        <BackgroundOptions selectedLanguage={selectedLanguage}></BackgroundOptions>
-        )}
+        <BackgroundOptions isOpenLanguage={isOpenLanguage} selectedLanguage={selectedLanguage}></BackgroundOptions>
       </Header>
       <Main>
         <Modal texts={texts}></Modal>

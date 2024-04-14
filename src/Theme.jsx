@@ -15,6 +15,9 @@ export const Theme = {
         description: '20px',
         title: '40px',
         subtitle: '25px',
-        observation: '15px'
+        observation: '15px',
+        mobile: {
+            title: '30px'
+        }
     }
 }
